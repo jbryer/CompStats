@@ -1,9 +1,9 @@
-# EPSY 887 Computational Statistics: Institute #
+# EPSY 887 Computational Statistics: Institute (Spring 2013) #
 
-Instructors: R. Pruzek (rpruzek@albany.edu) & J. Bryer (jason@bryer.org)
-Meeting Time: Thursdays 4.15 - 7.05
-Grading: 3 credits, S/U grading
-Course Website: https://github.com/jbryer/CompStats
+Instructors:		R. Pruzek (rpruzek@albany.edu) & J. Bryer (jason@bryer.org)  
+Meeting Time: 		Thursdays 4.15 - 7.05  
+Grading: 			3 credits, S/U grading  
+Course Website: 	https://github.com/jbryer/CompStats
 
 This seminar will provide an introduction to statistical programming for data analysis with an emphasis on the analysis of large datasets. With the increased availability of large national and international datasets (e.g. PISA, TIMMS, NAEP, ECLS) there is a great opportunity and potential for researchers to address important questions. However, the analysis of large datasets requires special analytical procedures not found in commercial statistics software. Utilizing the open source statistical software R, students will be introduced to the tools and procedures for analyzing large datasets with an emphasis on conducting transparent and reproducible research. 
 
