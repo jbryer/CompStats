@@ -5,7 +5,7 @@ Meeting Time: 		Thursdays 4.15 - 7.05
 Grading: 			3 credits, S/U grading  
 Course Website: 	https://github.com/jbryer/CompStats
 
-This seminar will provide an introduction to statistical programming for data analysis with an emphasis on the analysis of large datasets. With the increased availability of large national and international datasets (e.g. PISA, TIMMS, NAEP, ECLS) there is a great opportunity and potential for researchers to address important questions. However, the analysis of large datasets requires special analytical procedures not found in commercial statistics software. Utilizing the open source statistical software R, students will be introduced to the tools and procedures for analyzing large datasets with an emphasis on conducting transparent and reproducible research. 
+This seminar will provide an introduction to statistical programming for data analysis with an emphasis on the analysis of large datasets. With the increased availability of large national and international datasets (e.g. PISA, TIMMS, NAEP, ECLS) there is a great opportunity and potential for researchers to focus on important substantive research questions that are difficult to address by other means. However, the analysis of large datasets requires special analytical procedures not found in commercial statistics software. Utilizing the open source statistical software R, students will be introduced to tools and procedures for analyzing large datasets with an emphasis on conducting transparent and reproducible research.  
 
 ## Topics:
 * Introduction to R (e.g. data input, recoding, etc.)
