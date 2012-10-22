@@ -14,6 +14,8 @@
 
 * [RStudio](#InstallRStudio) RStudio is an excellent Integrated Development Environment (IDE) designed specifically for R, LaTeX, and Sweave development.
 
+* [R Packages](#rsetup) Once R and the supporting software has been installed, it is necessary to install a core set of R packages commonly used.
+
 
 ## Download Links <a id='downloads'></a> ##
 
@@ -124,6 +126,14 @@ These direct download links are provided for convenience and represent the lates
 ![Step 4](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/rstudio-install4.png?raw=true)
 
 ![Step 5](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/rstudio-install5.png?raw=true)
+
+[^ Top](#)
+
+## Installing R Packages <a name='rsetup'></a> ##
+
+Now we will install the first set of R packages. I have provided a setup script that will install the packages we will use. `Setup.r` can be downloaded from [Github here](https://raw.github.com/jbryer/CompStats/master/Installation/Setup.r). Open this script in Rstudio. Once open, click the `Source` button. 
+
+![RStudio Setup.r](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/Rstudio-SetupScript.tiff?raw=true)
 
 [^ Top](#)
 
