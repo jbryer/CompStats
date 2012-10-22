@@ -12,7 +12,7 @@ This seminar will provide an introduction to statistical programming for data an
 * Reshaping data
 * Data visualization vis-à-vis a grammar of graphics
 * Introduction to programming for data analysis (e.g. loops, conditional statements, functions, etc.)
-* Missing data
+* Missing data ([MICE](http://www.stefvanbuuren.nl/mi/), [Amelia II](http://gking.harvard.edu/amelia/))
 * Analysis of complex surveys (e.g. use of replicate weights and multiple plausible values)
 * Document preparation and typesetting with LaTeX and Sweave
 * R package development
