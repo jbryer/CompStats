@@ -39,21 +39,39 @@ These direct download links are provided for convenience and represent the lates
 
 ## Installing R on Windows <a id='InstallR'></a> ##
 
+Step 1
+
 ![Step 1](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/r-win1.png?raw=true)
+
+Step 2
 
 ![Step 2](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/r-win2.png?raw=true)
 
+Step 3
+
 ![Step 3](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/r-win3.png?raw=true)
+
+Step 4
 
 ![Step 4](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/r-win4.png?raw=true)
 
+Step 5
+
 ![Step 5](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/r-win5.png?raw=true)
+
+Step 6
 
 ![Step 6](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/r-win6.png?raw=true)
 
+Step 7
+
 ![Step 7](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/r-win7.png?raw=true)
 
+Step 8
+
 ![Step 8](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/r-win8.png?raw=true)
+
+Step 9
 
 ![Step 9](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/r-win9.png?raw=true)
 
@@ -61,21 +79,39 @@ These direct download links are provided for convenience and represent the lates
 
 ## Installing Rtools <a id='InstallRtools'></a> ##
 
+Step 1
+
 ![Step 1](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/rtools1.png?raw=true)
+
+Step 2
 
 ![Step 2](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/rtools2.png?raw=true)
 
+Step 3
+
 ![Step 3](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/rtools3.png?raw=true)
+
+Step 4
 
 ![Step 4](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/rtools4.png?raw=true)
 
+Step 5 **NOTE: It is important to check the first box to ensure the System `PATH` is modified to include these tools.**
+
 ![Step 5](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/rtools5.png?raw=true)
+
+Step 6
 
 ![Step 6](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/rtools6.png?raw=true)
 
+Step 7
+
 ![Step 7](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/rtools7.png?raw=true)
 
+Step 8
+
 ![Step 8](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/rtools8.png?raw=true)
+
+Step 9
 
 ![Step 9](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/rtools9.png?raw=true)
 
@@ -83,17 +119,31 @@ These direct download links are provided for convenience and represent the lates
 
 ## Installing MiKTeX <a id='InstallMiKTeX'></a> ##
 
+Step 1
+
 ![Step 1](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/miktex-install1.png?raw=true)
+
+Step 2
 
 ![Step 2](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/miktex-install2.png?raw=true)
 
+Step 3
+
 ![Step 3](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/miktex-install3.png?raw=true)
+
+Step 4
 
 ![Step 4](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/miktex-install4.png?raw=true)
 
+Step 5
+
 ![Step 5](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/miktex-install5.png?raw=true)
 
+Step 6
+
 ![Step 6](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/miktex-install6.png?raw=true)
+
+Step 7
 
 ![Step 7](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/miktex-install7.png?raw=true)
 
@@ -101,29 +151,53 @@ These direct download links are provided for convenience and represent the lates
 
 ## Installing ActivePerl <a id='InstallActivePerl'></a> ##
 
+Step 1
+
 ![Step 1](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/ActivePerl-install1.png?raw=true)
+
+Step 2
 
 ![Step 2](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/ActivePerl-install2.png?raw=true)
 
+Step 3
+
 ![Step 3](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/ActivePerl-install3.png?raw=true)
+
+Step 4
 
 ![Step 4](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/ActivePerl-install4.png?raw=true)
 
+Step 5
+
 ![Step 5](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/ActivePerl-install5.png?raw=true)
 
+Step 6
+
 ![Step 6](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/ActivePerl-install6.png?raw=true)
+
+Step 7
 
 ![Step 7](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/ActivePerl-install7.png?raw=true)
 
 ## Installing RStudio <a id='InstallRStudio'></a> ##
 
+Step 1
+
 ![Step 1](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/rstudio-install1.png?raw=true)
+
+Step 2
 
 ![Step 2](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/rstudio-install2.png?raw=true)
 
+Step 3
+
 ![Step 3](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/rstudio-install3.png?raw=true)
 
+Step 4
+
 ![Step 4](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/rstudio-install4.png?raw=true)
+
+Step 5
 
 ![Step 5](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/rstudio-install5.png?raw=true)
 
