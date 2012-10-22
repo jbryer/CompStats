@@ -1,0 +1,34 @@
+# .Rprofile -- commands in this file will be executed at the beginning of
+# each R session. On Windows, the R_PROFILE environment variable must have value
+# with the full path to this file. On Linux (or other Unix like systems) this file
+# must be in the user's home directory.
+
+# Set the default repository to the main CRAN site
+options(repos=c(CRAN='http://cran.r-project.org'))
+.libLoc = ''
+
+# Set the oDrive varaible and library path
+if(Sys.info()['sysname'] == 'Windows') {
+	.libLoc = 'C:/RLibrary'
+	require(utils, quietly=TRUE)
+	print("Setting memory limit for R to 4GB...")
+	memory.limit(size=4095) #Set to 4GB (for 64-bit Windows, this can be much larger)
+	message(paste('R_LIBS:    ', Sys.getenv('R_LIBS'), sep=''))
+	message(paste('R_PROFILE: ', Sys.getenv('R_PROFILE'), sep=''))
+	dir.create('C:/RLibrary', recursive=TRUE, showWarnings=FALSE)
+	.libPaths(c('c:/RLibrary', .libLoc))
+} else if(Sys.info()['sysname'] == 'Linux') {
+	.libLoc = '~/R'
+	.libPaths(.libLoc)
+} else if(Sys.info()['sysname'] == 'Darwin') {
+	.libLoc = '~/R'
+	.libPaths(.libLoc)
+}
+
+# Customize the default look and feel of ggplot2
+if(require(ggplot2, quietly=TRUE)) {
+	theme_update(panel.background=element_blank(), 
+				 panel.grid.major=element_blank(), 
+				 panel.border=element_blank())
+}
+
