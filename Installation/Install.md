@@ -133,7 +133,7 @@ These direct download links are provided for convenience and represent the lates
 
 Now we will install the first set of R packages. I have provided a setup script that will install the packages we will use. `Setup.r` can be downloaded from [Github here](https://raw.github.com/jbryer/CompStats/master/Installation/Setup.r). Open this script in Rstudio. Once open, click the `Source` button. 
 
-![RStudio Setup.r](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/Rstudio-SetupScript.tiff?raw=true)
+![RStudio Setup.r](https://github.com/jbryer/CompStats/blob/master/Installation/Figures/Rstudio-SetupScript.png?raw=true)
 
 [^ Top](#)
 
