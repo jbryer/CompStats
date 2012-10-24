@@ -63,5 +63,6 @@ O'Sullivan, D., & Unwin, D.J. (2010). *Geographic Information Analysis (2nd Ed.)
 
 ## LaTeX <a name='LaTeX'></a>
 
-Grätzer, G. (2007). *[More Math Into LaTeX (4th Ed.)](http://www.math.cornell.edu/~whieldon/Math224_files/More_Math_into_LaTex.pdf)*. New York: Springer.
-
+Beitzel, B.D. (2012). [Formatting LaTeX documents in APA style (6th Edition) using the apa6 class](http://tug.org/pracjourn/2012-1/beitzel/beitzel.pdf). *The PracTeX Journal, 1*. 
+Grätzer, G. (2007). *[More Math Into LaTeX (4th Ed.)](http://www.math.cornell.edu/~whieldon/Math224_files/More_Math_into_LaTex.pdf)*. New York: Springer.
+Shang, H.L. (2012). [Writing posters with Beamerposter package in LaTeX](http://tug.org/pracjourn/2012-1/shang.html). *The PracTeX Journal, 1*. 
