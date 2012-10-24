@@ -9,15 +9,24 @@ This seminar will provide an introduction to statistical programming for data an
 
 ## Topics:
 * Introduction to R (e.g. data input, recoding, etc.)
-* Reshaping data
-* Data visualization vis-à-vis a grammar of graphics
+* Reshaping data ([`reshape` package](http://www.jstatsoft.org/v21/i12/paper))
+* Data visualization vis-à-vis a grammar of graphics ([`ggplot2`](http://ggplot2.org/))
 * Introduction to programming for data analysis (e.g. loops, conditional statements, functions, etc.)
-* Missing data ([MICE](http://www.stefvanbuuren.nl/mi/), [Amelia II](http://gking.harvard.edu/amelia/))
-* Analysis of complex surveys (e.g. use of replicate weights and multiple plausible values)
+* Missing data ([`MICE`](http://www.stefvanbuuren.nl/mi/), [`Amelia` II](http://gking.harvard.edu/amelia/))
+* Analysis of complex surveys (e.g. use of replicate weights and multiple plausible values) ([`survey` package](http://faculty.washington.edu/tlumley/survey/))
 * Document preparation and typesetting with LaTeX and Sweave
 * R package development
 * Software project management principles as applied to data analysis (e.g. source countrol, progress tracking, versioning, Github, R-Forge, etc.).
 * Other data analytic topics as identified by students and appropriate for analysis of large datasets. Topics may include propensity score analysis, multilevel modeling, IRT, random forests, regression trees, etc.
 
 Students are encouraged to bring their own data and/or research questions as this seminar will emphasize applied statistics and analysis. Class examples however, will utilize the Programme for International Student Assessment (PISA; OECD 2009). 
+
+## Software
+
+This course will make substantial use of the R software language. The following software is required and freely available. See the [installation](Installation/Install.md) page for details.
+
+* [R](http://www.r-project.org)
+* [Rtudio](http://www.rstudio.org)
+* LaTeX ([MiKTeX](http://miktex.org/) on Windows or [MacTeX](http://www.tug.org/mactex/) on Mac)
+
 
