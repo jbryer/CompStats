@@ -31,5 +31,7 @@ This course will make substantial use of the R software language. The following 
 
 ## Textbooks
 
-Kabacoff, R.J. (2011). *[R in Action: Data Analysis and Graphics with R](http://www.amazon.com/R-Action-Robert-Kabacoff/dp/1935182390/ref=sr_1_1?ie=UTF8&qid=1351957914&sr=8-1&keywords=r+in+action&tag=jasbry-20)*. Shelter Island, NY: Manning.
-Matloff, N. (2011). *[The Art of R Programming](http://www.amazon.com/gp/product/B00683GXUO/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00683GXUO&linkCode=as2&tag=jasbry-20)*. San Francisco, CA: No Stratch Press
+These are the recommended books for learning R. They provide two different perspectives on R. Kabacoff presents R from a data analyst point-of-view whereas Matloff provides more of a software programming perspective. The complement each other nicely.
+
+* Kabacoff, R.J. (2011). *[R in Action: Data Analysis and Graphics with R](http://www.amazon.com/R-Action-Robert-Kabacoff/dp/1935182390/ref=sr_1_1?ie=UTF8&qid=1351957914&sr=8-1&keywords=r+in+action&tag=jasbry-20)*. Shelter Island, NY: Manning.
+* Matloff, N. (2011). *[The Art of R Programming](http://www.amazon.com/gp/product/B00683GXUO/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00683GXUO&linkCode=as2&tag=jasbry-20)*. San Francisco, CA: No Stratch Press
