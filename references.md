@@ -25,6 +25,21 @@ Cleveland, W. S. (1993). *Visualizing Data*. Summit, NJ: Hobart Press.
 Tufte, E. R. (2001). *The Visual Display of Quantitative Information*. Cheshire, CT: Graphics Press LLC.
 Unwin, A., Theus, M., & Hofmann, H. (2006). *[Graphics of Large Datasets: Visualizing a Million](http://www.springer.com/statistics/statistical+theory+and+methods/book/978-0-387-32906-2)*. New York, NY: Springer.Wilkinson, L. (2005). *[The Grammar of Graphics (2nd Ed)](http://www.cs.uic.edu/~wilkinson/TheGrammarOfGraphics/GOG.html)*. New York, NY: Springer.Wickham, H. (2009). *[ggplot2: Elegant Graphics for Data Analysis](http://www.springer.com/statistics/computational+statistics/book/978-0-387-98140-6)*. New York, NY: Springer.Yau, N. (2011). *Visualize This: The FlowingData Guide to Design, Visualization, and Statistics*. Indianapolis, IN: Wiley Publishing, Inc.
 
+### Journal of Computational and Graphical Statistics 2012
+
+[Andrew Gelman and Anthony Unwin, Infovis and Statistical Graphics: Different Goals, Different Looks](http://www.stat.columbia.edu/~gelman/research/published/vis14.pdf)
+
+**Responses:**
+
+- [Stephen Few, Are Infovis and Statistical Graphics Really All That Different?](http://www.perceptualedge.com/files/are_infovis_and_statistical_graphics_really_all_that_different.pdf)
+- [Robert Kosara, InfoVis Is So Much More: A Comment on Gelman and Unwin and an Invitation to Consider the Opportunities](http://kosara.net/publications/Kosara_JCGS_2013.html)
+- [Paul Murrell, Comment](http://www.stat.auckland.ac.nz/~paul/MurrellCommentGelmanUnwin.pdf)
+- [Hadley Wickham, Graphical criticism: some historical notes](http://vita.had.co.nz/papers/stat-graph-hist.html)
+
+**Rejoinder**
+
+- [Andrew Gelman and Anthony Unwin, Tradeoffs in Information Graphics](http://www.stat.columbia.edu/~gelman/research/published/visreply3.pdf)
+
 ## Analysis of Complex Surveys <a name='ComplexSurveys'></a>
 
 Lumley, T. (2004). [Analysis of complex surveys samples](http://www.jstatsoft.org/v09/a08/paper). *Journal of Statistical Software, 9*(8).
