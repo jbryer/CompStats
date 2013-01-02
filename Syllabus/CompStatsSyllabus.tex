@@ -73,11 +73,13 @@ Why learn to program? (Shalizi, 2012, \url{http://www.stat.cmu.edu/~cshalizi/sta
 \end{itemize}
 
 \vskip.25in
-\noindent \textbf{Course Objectives}: A Description of the Course Objectives.
+\noindent \textbf{Course Objectives}: At the completion of the seminar students should be able to analyze large datasets using reproducible techniques. 
 
 \vskip.25in
 \noindent\textbf{Prerequisites:} Two graduate level statistics courses (e.g. EPSY 530 \& EPSY 630).
 
+\vskip .25in
+\noindent\textbf{Grade Policy:} This course will be graded on a pass/fail basis. Successful students will actively attend and participate in class and the course website. During the first two weeks students will identify a dataset and a general research question that will serve as their primary project for the semester. Each week students should be prepared to provide an update on their progress of their data analysis. Students will give a presentation at the end of the semester on their results (even if preliminary). A document outlining their procedures and annotated bibliography will also be required.
 
 \vskip .25in
 \noindent \textbf{Course Outline:} 
@@ -87,16 +89,21 @@ Why learn to program? (Shalizi, 2012, \url{http://www.stat.cmu.edu/~cshalizi/sta
 \noindent\begin{tabular}{rp{4.6in} p{1.4in}}
 \hline
  & \textbf{Topic} & \textbf{Reading} \\ \hline
-1. & Introduction to R \newline(e.g. data input, recoding, etc.) & Kabacoff Ch 1 \& 2 \\
-2. & Reshaping data & Kabacoff 5.6.3 \newline Wickham (2007) \\
-3. & Data visualization vis-\`{a}-vis a grammar of graphics & \url{http://had.co.nz/ggplot2} \\
-4. & Introduction to programming for data analysis (e.g. loops, conditional statements, functions, etc.) & Matloff Ch 7\\
-5. & Object oriented programming (S3, S4, and Reference Classes) & Chambers \\
-6. & Missing data & Kabacoff Ch 15 \\
-7. & Analysis of complex surveys (e.g. use of replicate weights and multiple plausible values) & Lumley \\
-8. & Document preparation and typesetting with \LaTeX  and Sweave & \\
-9. & R package development & \\
-10. & Software project management principles as applied to data analysis (e.g. source countrol, progress tracking, versioning, Github, R-Forge, etc.). & \\
+Jan 24 & Introduction to R \newline(e.g. data input, recoding, etc.) & Kabacoff Ch 1 \& 2 \\
+Jan 31 & Advanced R & \\
+Feb 7 & Reshaping data & Kabacoff 5.6.3 \newline Wickham (2007) \\
+Feb 14 & Data visualization vis-\`{a}-vis a grammar of graphics & \url{http://had.co.nz/ggplot2} \\
+Feb 21 & Introduction to programming for data analysis (e.g. loops, conditional statements, functions, etc.) & Matloff Ch 7\\
+Feb 28 & Object oriented programming (S3, S4, and Reference Classes) & Chambers \\
+Mar 7 & Missing data & Kabacoff Ch 15 \\
+Mar 14 & Analysis of complex surveys (e.g. use of replicate weights and multiple plausible values) & Lumley \\
+Mar 21 & No class - Spring Break & \\
+Mar 28 & Document preparation and typesetting with \LaTeX  and Sweave & \\
+Apr 4 & No class & \\
+Apr 11 & R package development & \\
+Apr 18 & Software project management principles as applied to data analysis (e.g. source countrol, progress tracking, versioning, Github, R-Forge, etc.). & \\
+Apr 25 & Propensity Score Analysis & \\
+May 2 & & \\
 \hline
 \end{tabular}
 %\end{sidewaystable}
@@ -138,7 +145,7 @@ This course will rely heavily on the use of R. R is a free, open source software
 
 \vskip .25in
 \noindent\textbf{Data}\\
-One of the major purposes for computational statistics is to make better use of data. In some instances we will simulate data, but to get the most out of this seminar we will use real datasets. Class examples will make extensive use of PISA. The list below are some of the freely available datasets available for download.\\
+One of the major purposes for computational statistics is to make better use of data. In some instances we will simulate data, but to get the most out of this seminar we will use real datasets. Class examples will make extensive use of PISA. The list below are some of the freely available datasets available for download. More are listed on the course wiki at \url{https://github.com/jbryer/CompStats/wiki/Data-Sources}. \\
 
 \noindent
 \href{http://www.pisa.oecd.org}{Programme for International Student Assessmen (PISA)}\dotfill (OECD)\\
@@ -151,23 +158,8 @@ One of the major purposes for computational statistics is to make better use of 
 \href{http://nces.ed.gov}{Common Core of Data (CCD)}\dotfill (NCES)
 
 \vskip .25in
-\noindent\textbf{Useful Websites}\\
-\begin{itemize}
-\item\href{http://www.r-bloggers.com}{R-Bloggers} is a meta-blog that aggregates many other blogs related to R. This is an excellent resource to keep up on progress within the R community.
-\item\href{http://www.statmethods.net}{StatMethods} This is the companion site to Kabakoff's \textit{R in Action} book.
-\item\href{http://had.co.nz/ggplot2}{ggplot2} This is a reference site for using ggplot2.
-\item\href{http://stackoverflow/tags/r}{StackOverflow} is a place to ask questions. The R community is very active on this site and you are likely to find very helpful people there.
-\item\href{http://journal.r-project.org}{The R Journal} is the official journal for R.
-\item\href{http://personality-project.org/r}{The Personality Project} is a site maintained by William Revelle and contains a lot of information about the use of R in psychological research.
-\item\href{http://software-carpentry.org/}{Software Carpentry}
-\item\href{http://kbroman.wordpress.com/2012/05/25/a-course-in-statistical-programming/}{A course in in statistical computing}
-\item\href{https://sites.google.com/site/statteachr/home/r-resources}{StatTeachR}
-\item\href{http://jeffreyhorner.tumblr.com/post/24404112057/announcing-the-r-markdown-package}{Jeffry Horner - Announcing The R markdown Package}
-\item\href{https://sites.google.com/site/davidkahle/ggmap}{ggmap}
-\end{itemize}
-
-\vskip .25in
-\noindent\textbf{Grade Policy:} This course will be graded on a pass/fail basis.
+\noindent\textbf{Course Website}\\
+\noindent We will utilize \href{https://github.com/jbryer/CompStats}{Github} and \href{http://dropbox.com}{Dropbox} for sharing information. Github functions primarily as a source control repository for storing and tracking changes in documents and source code (e.g. R scripts). It also provides a wiki that we will use for sharing information and issue tracking that we will use for questions and answers.
 
 \vskip .25in
 \noindent\textbf{Academic Integrity:} Whatever you produce for this course should be your own work and created specifically for this course. You cannot present work produced by others, nor offer any work that you presented or will present to another course. If you borrow text or media from another source or paraphrase substantial ideas from someone else, you must provide a reference to your source.
