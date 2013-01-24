@@ -8,18 +8,18 @@
 \usepackage{rotating}
 
 %Draft watermark
-\usepackage{graphicx,type1cm,eso-pic,color}
-\makeatletter
-          \AddToShipoutPicture{
-            \setlength{\@tempdimb}{.5\paperwidth}
-            \setlength{\@tempdimc}{.5\paperheight}
-            \setlength{\unitlength}{1pt}
-            \put(\strip@pt\@tempdimb,\strip@pt\@tempdimc){
-        \makebox(0,0){\rotatebox{55}{\textcolor[gray]{0.9}
-        {\fontsize{5cm}{5cm}\selectfont{DRAFT}}}}
-            }
-        }
-\makeatother
+%\usepackage{graphicx,type1cm,eso-pic,color}
+%\makeatletter
+%          \AddToShipoutPicture{
+%            \setlength{\@tempdimb}{.5\paperwidth}
+%            \setlength{\@tempdimc}{.5\paperheight}
+%            \setlength{\unitlength}{1pt}
+%            \put(\strip@pt\@tempdimb,\strip@pt\@tempdimc){
+%        \makebox(0,0){\rotatebox{55}{\textcolor[gray]{0.9}
+%        {\fontsize{5cm}{5cm}\selectfont{DRAFT}}}}
+%            }
+%        }
+%\makeatother
 
 
 
@@ -33,7 +33,7 @@
 \begin{center}
 {\bf \LARGE EPSY 887 Computational Statistics\\ \vskip.1in
 \Large Spring 2013\\ \vskip .1in
-\Large Draft as of \today
+%\Large Draft as of \today
 % \Large Fall 2012
 }
 \end{center}
@@ -54,7 +54,7 @@
 	\textbf{Website:} \href{http://github.com/jbryer/CompStats}{github.com/jbryer/CompStats}
 } & \bigcell{l}{
 	\textbf{Class Time:} Thursday 4:15 - 7:05 \\
-	\textbf{Class Location:} TBD \\
+	\textbf{Class Location:} Ed 13 \\
 	\textbf{Office Hours:} by appointment.
 } \\
 \end{tabular}
@@ -73,7 +73,7 @@ Why learn to program? (Shalizi, 2012, \url{http://www.stat.cmu.edu/~cshalizi/sta
 \end{itemize}
 
 \vskip.25in
-\noindent \textbf{Course Objectives}: At the completion of the seminar students should be able to analyze large datasets using reproducible techniques. 
+\noindent \textbf{Course Objectives}: At the completion of the seminar students should be able to analyze large datasets using reproducible techniques. This includes utilizing analytic approaches not available in commercial statistical software.
 
 \vskip.25in
 \noindent\textbf{Prerequisites:} Two graduate level statistics courses (e.g. EPSY 530 \& EPSY 630).
@@ -81,6 +81,7 @@ Why learn to program? (Shalizi, 2012, \url{http://www.stat.cmu.edu/~cshalizi/sta
 \vskip .25in
 \noindent\textbf{Grade Policy:} This course will be graded on a pass/fail basis. Successful students will actively attend and participate in class and the course website. During the first two weeks students will identify a dataset and a general research question that will serve as their primary project for the semester. Each week students should be prepared to provide an update on their progress of their data analysis. Students will give a presentation at the end of the semester on their results (even if preliminary). A document outlining their procedures and annotated bibliography will also be required.
 
+\clearpage
 \vskip .25in
 \noindent \textbf{Course Outline:} 
 \vskip .15in
@@ -145,17 +146,7 @@ This course will rely heavily on the use of R. R is a free, open source software
 
 \vskip .25in
 \noindent\textbf{Data}\\
-One of the major purposes for computational statistics is to make better use of data. In some instances we will simulate data, but to get the most out of this seminar we will use real datasets. Class examples will make extensive use of PISA. The list below are some of the freely available datasets available for download. More are listed on the course wiki at \url{https://github.com/jbryer/CompStats/wiki/Data-Sources}. \\
-
-\noindent
-\href{http://www.pisa.oecd.org}{Programme for International Student Assessmen (PISA)}\dotfill (OECD)\\
-\href{http://www.census.gov/acs/www}{American Community Survey (ACS)}\dotfill (US Census)\\
-\href{http://reportcards.nysed.gov}{New York State Report Cards}\dotfill (NYS Education Department)\\
-\href{http://sabinsdata.org}{School Attendance Boundary Information System (SABINS)}\dotfill (William \& Mary with NHGIS) \\
-\href{http://nces.ed.gov/ipeds}{Integrated Postsecondary Education Data System}\dotfill (NCES)\\
-\href{http://timssandpirls.bc.edu}{Trends in International Mathematics and Science Study (TIMSS)}\dotfill (IEA)\\
-\href{http://timssandpirls.bc.edu}{Progress in International Reading Literacy Study (PIRLS)}\dotfill (IEA)\\
-\href{http://nces.ed.gov}{Common Core of Data (CCD)}\dotfill (NCES)
+One of the major purposes for computational statistics is to make better use of data. In some instances we will simulate data, but to get the most out of this seminar we will use real datasets. Class examples will make extensive use of PISA. A list of available data sets is available on the course wiki at \url{https://github.com/jbryer/CompStats/wiki/Data-Sources}.
 
 \vskip .25in
 \noindent\textbf{Course Website}\\
