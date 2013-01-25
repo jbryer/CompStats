@@ -1,7 +1,7 @@
 # EPSY 887 Computational Statistics: Institute (Spring 2013) #
 
-Instructors:		R. Pruzek (rpruzek@albany.edu) & J. Bryer (jason@bryer.org)  
-Meeting Time: 		Thursdays 4.15 - 7.05  
+Instructors:		J. Bryer (jason@bryer.org) and R. Pruzek (rpruzek@albany.edu)  
+Meeting Time: 		Monday 6:00 p.m. - 9:00  p.m.  
 Grading: 			3 credits, S/U grading  
 Course Website: 	https://github.com/jbryer/CompStats
 
