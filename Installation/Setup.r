@@ -28,6 +28,7 @@ install_github('ipeds','jbryer')
 install_github('makeR','jbryer')
 install_github('pisa','jbryer')
 install_github('multilevelPSA','jbryer')
+install_github('TriMatch','jbryer')
 
 library() #Return list of installed packages
 search() #Return list of loaded packages
