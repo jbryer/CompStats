@@ -10,8 +10,13 @@ pkgs <- c('Deducer', 'devtools', 'doBy', 'foreign', 'gdata', 'ggplot2',
 is_installed <- function(mypkg) { is.element(mypkg, installed.packages()[,1]) }
 for(l in pkgs) {
 	if(!is_installed(l)) {
-		install.packages(l, dependencies=TRUE,
-			repos=c("http://www.stats.ox.ac.uk/pub/RWin", "http://cran.r-project.org"))
+		if(Sys.info()['sysname'] == 'Windows') {
+			install.packages(l, dependencies=TRUE,
+				repos=c("http://www.stats.ox.ac.uk/pub/RWin", "http://cran.r-project.org"))
+		} else {
+			install.packages(l, dependencies=TRUE,
+							 repos=c("http://cran.r-project.org"))			
+		}
 	}
 }
 
