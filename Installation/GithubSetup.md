@@ -2,10 +2,9 @@
 
 1. First, got to [https://github.com](https://github.com) and create an account.
 
-2. Install a git client.
-
-	* For Mac: [http://git-scm.com/download/mac](http://git-scm.com/download/macs)
-	* For Windows: [http://git-scm.com/download/win](http://git-scm.com/download/win)
+2. Install a git client.  
+* For Mac: [http://git-scm.com/download/mac](http://git-scm.com/download/macs)
+* For Windows: [http://git-scm.com/download/win](http://git-scm.com/download/win)
 
 3. Go to the RStudio Preferences dialog box and make sure a Git executable is set under the Git/SVN section.
 
@@ -32,10 +31,9 @@
 
 ## Alternative method without RStudio
 
-1. Download the Github application:
-
-	* For Mac: [http://mac.github.com/](http://mac.github.com/)
-	* For Windows: [http://windows.github.com/](http://windows.github.com/)
+1. Download the Github application:  
+* For Mac: [http://mac.github.com/](http://mac.github.com/)
+* For Windows: [http://windows.github.com/](http://windows.github.com/)
 
 2. Go to the course website at [http://github.com/jbryer/CompStats](http://github.com/jbryer/CompStats) and click the `Clone` button (Will say `Clone in Mac` or `Clone in Windows` depending you your platform).
 
