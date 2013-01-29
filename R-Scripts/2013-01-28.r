@@ -1,3 +1,5 @@
+setwd("~/Dropbox/School/Teaching/EPSY887 Spring 2013 Computational Statistics/R-Scripts")
+
 #Load packages. See Setup.r for installing packages.
 require(psych)
 require(pisa)
@@ -27,4 +29,50 @@ describe(pisa.student$math)
 mathByCnt <- describeBy(pisa.student$math, group=pisa.student$CNT, mat=TRUE)
 mathByCnt[order(mathByCnt$mean), c('group1','mean','sd','n','median')]
 
+
+#### We Googled "Mixed effects in R" 
+install.packages('nlme')
+require(nlme)
+search()
+ls(2)
+ls( "package:nlme")
+help(package='nlme')
+
+#NA vs NULL
+myvar <- 'Hello'
+myvar
+length(myvar)
+class(myvar)
+myvar <- NA
+myvar
+myvar <- NULL
+myvar
+rm(myvar)
+
+myvar <- 1/9999
+myvar
+myvar == 1/9999
+
+myvar1 <- as.integer(2112)
+myvar2 <- 3.14
+class(myvar1)
+class(myvar2)
+myvar3 <- c(myvar1, myvar2)
+myvar3
+class(myvar3)
+myvar4 <- c(myvar3, 'Hello')
+myvar4
+class(myvar4)
+str(myvar4)
+str(myvar3)
+
+names(myvar4) <- c('a','b','c')
+names(myvar4)
+myvar4
+myvar4[2]
+myvar4['b']
+
+myvar5 <- c(var1='Hello', var2='World')
+myvar5
+names(myvar5)
 
