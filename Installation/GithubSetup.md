@@ -27,8 +27,7 @@
 
 8. To update your local copy to the latest version from Github, from the Git tab in RStudio, select `More`, then `Pull Branches`. 
 
-![Update](Figures/rstudio-gitpull.png?raw=TRUE)
-
+	![Update](Figures/rstudio-gitpull.png?raw=TRUE)
 
 
 ## Alternative method without RStudio
