@@ -1,6 +1,6 @@
 pkgs <- c('Deducer', 'devtools', 'doBy', 'foreign', 'gdata', 'ggplot2',
-          'gmaps', 'Hmisc', 'JGR', 'knitr', 'maps', 'mapdata', 'mapprov',
-          'maptools', 'psych', 'R2wd', 'RCurl', 'reshape', 'RODBC',
+          'Hmisc', 'JGR', 'knitr', 'maps', 'mapdata',
+          'maptools', 'psych', 'RCurl', 'reshape', 'RODBC',
           'roxygen2', 'seqinr', 'sm', 'sp', 'sqldf', 'survey', 'WriteXLS',
           'XML', 'xtable')
 
@@ -22,7 +22,7 @@ for(l in pkgs) {
 
 #If you already have R installed, this function will look for updates to any
 #installed packages.
-update.packages(ask=FALSE)
+update.packages(ask=FALSE, repos='http://cran.r-project.org')
 
 #The following packages will be installed from github.com. The install_github
 #function is in the devtools package.
