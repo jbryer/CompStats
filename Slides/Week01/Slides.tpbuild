@@ -1,4 +1,10 @@
-#!/bin/bash
-R CMD Sweave "$TEXPAD_ROOTFILE"
-pdflatex "$TEXPAD_ROOTFILE_NO_EXT.tex"
 
+<!-- saved from url=(0086)https://raw.github.com/vallettaventures/TexpadKB/master/tpbuild-scripts/sweave.tpbuild -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body class=" hasGoogleVoiceExt"><pre style="word-wrap: break-word; white-space: pre-wrap;">#!/bin/bash
+
+r -e 'Sweave("'$TEXPAD_ROOTFILE_NO_EXT'.rnw")'
+xelatex $TEXPAD_ROOTFILE_NO_EXT.tex
+bibtex $TEXPAD_ROOTFILE_NO_EXT
+xelatex $TEXPAD_ROOTFILE_NO_EXT.tex
+xelatex $TEXPAD_ROOTFILE_NO_EXT.tex
+</pre></body><style type="text/css">embed[type*="application/x-shockwave-flash"],embed[src*=".swf"],object[type*="application/x-shockwave-flash"],object[codetype*="application/x-shockwave-flash"],object[src*=".swf"],object[codebase*="swflash.cab"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"]{	display: none !important;}</style></html>

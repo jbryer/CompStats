@@ -1,0 +1,285 @@
+%\documentclass[handout]{beamer}
+%\documentclass[handout,10pt,slidestop,mathserif]{beamer}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}
+\documentclass[10pt,slidestop,mathserif,c]{beamer}
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+
+\usepackage{tabularx}
+\usepackage{verbatim}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{Sweave}
+\usepackage{moreverb}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{Sweave}
+%\SweaveOpts{prefix.string=figures/}
+
+\newcommand{\putat}[3]{\begin{picture}(0,0)(0,0)\put(#1,#2){#3}\end{picture}}
+  
+\newenvironment{changemargin}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+  \item[]}{\end{list}}
+
+%% Define a new 'leo' style for the package that will use a smaller font.
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\tiny\ttfamily}}}
+\makeatother
+
+\title{EPSY 887: Computation Statistics}
+\subtitle{Working with Data}
+\author[Jason Bryer]{Jason Bryer}
+\institute[Jason.Bryer.org]{\url{http://github.com/jbryer/CompStats}\\\href{mailto:jason@bryer.org}{jason@bryer.org}}
+\date[Feb 4, 2013]{Week 2\\February 4, 2013}
+
+\begin{document}
+
+\AtBeginSection[]
+{
+   \begin{frame}
+       \frametitle{Outline}
+       \tableofcontents[currentsection,currentsubsections]
+   \end{frame}
+}
+
+
+\frame{\titlepage}
+\frame{\frametitle{Agenda}\tableofcontents[hideallsubsections]}
+
+\section{Reading Data}
+
+\begin{frame}[fragile]
+	\frametitle{Reading Data}
+	\begin{description}
+		\item[read.table] Reads in a table where each line is a record. Lots of options to define the structure of the file.
+		\item[read.csv] Comma deliminited files.
+		\item[read.spss] In the \texttt{foreign} package, reads SPSS files.
+		\item[read.xls] In the \texttt{gdata} package, reads Excel files.
+		\item[RODBC] This package has functions to read data from most ODBC databases.
+		\item[RMySQL] Package for reading data from MySQL databases.
+		\item[RPoostgreSQL] Package for reading data from PostgreSQL databases.
+		\item[load] Read in R data object files saved using the \texttt{save}. This is very useful for saving intermediate data files.
+	\end{description}
+\end{frame}
+
+\section{Viewing and Subsetting Data}
+
+\begin{frame}[fragile,containsverbatim]
+	\frametitle{Subsetting Lists and Vectors}
+\begin{Schunk}
+\begin{Sinput}
+> mylist <- list(letters=letters, numbers=1:10)
+> class(mylist)
+\end{Sinput}
+\begin{Soutput}
+[1] "list"
+\end{Soutput}
+\begin{Sinput}
+> str(mylist)
+\end{Sinput}
+\begin{Soutput}
+List of 2
+ $ letters: chr [1:26] "a" "b" "c" "d" ...
+ $ numbers: int [1:10] 1 2 3 4 5 6 7 8 9 10
+\end{Soutput}
+\begin{Sinput}
+> length(mylist)
+\end{Sinput}
+\begin{Soutput}
+[1] 2
+\end{Soutput}
+\end{Schunk}
+\end{frame}
+
+\begin{frame}[fragile,containsverbatim]
+	\frametitle{Subsetting Lists and Vectors}
+\begin{Schunk}
+\begin{Sinput}
+> mylist[1]
+\end{Sinput}
+\begin{Soutput}
+$letters
+ [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k"
+[12] "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v"
+[23] "w" "x" "y" "z"
+\end{Soutput}
+\begin{Sinput}
+> mylist[[1]]
+\end{Sinput}
+\begin{Soutput}
+ [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k"
+[12] "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v"
+[23] "w" "x" "y" "z"
+\end{Soutput}
+\begin{Sinput}
+> mylist$letters
+\end{Sinput}
+\begin{Soutput}
+ [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k"
+[12] "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v"
+[23] "w" "x" "y" "z"
+\end{Soutput}
+\begin{Sinput}
+> mylist$numbers
+\end{Sinput}
+\begin{Soutput}
+ [1]  1  2  3  4  5  6  7  8  9 10
+\end{Soutput}
+\end{Schunk}
+\end{frame}
+
+\begin{frame}[fragile,containsverbatim]
+	\frametitle{Subsetting Data Frames and Matrices}
+\begin{Schunk}
+\begin{Sinput}
+> data(mtcars)
+> head(mtcars)
+\end{Sinput}
+\begin{Soutput}
+                  mpg cyl disp  hp drat  wt qsec
+Mazda RX4          21   6  160 110  3.9 2.6   16
+Mazda RX4 Wag      21   6  160 110  3.9 2.9   17
+Datsun 710         23   4  108  93  3.9 2.3   19
+Hornet 4 Drive     21   6  258 110  3.1 3.2   19
+Hornet Sportabout  19   8  360 175  3.1 3.4   17
+Valiant            18   6  225 105  2.8 3.5   20
+                  vs am gear carb
+Mazda RX4          0  1    4    4
+Mazda RX4 Wag      0  1    4    4
+Datsun 710         1  1    4    1
+Hornet 4 Drive     1  0    3    1
+Hornet Sportabout  0  0    3    2
+Valiant            1  0    3    1
+\end{Soutput}
+\end{Schunk}
+\end{frame}
+
+\begin{frame}[fragile,containsverbatim]
+	\frametitle{Subsetting Data Frames and Matrices}
+\begin{Schunk}
+\begin{Sinput}
+> tail(mtcars)
+\end{Sinput}
+\begin{Soutput}
+               mpg cyl disp  hp drat  wt qsec vs
+Porsche 914-2   26   4  120  91  4.4 2.1   17  0
+Lotus Europa    30   4   95 113  3.8 1.5   17  1
+Ford Pantera L  16   8  351 264  4.2 3.2   14  0
+Ferrari Dino    20   6  145 175  3.6 2.8   16  0
+Maserati Bora   15   8  301 335  3.5 3.6   15  0
+Volvo 142E      21   4  121 109  4.1 2.8   19  1
+               am gear carb
+Porsche 914-2   1    5    2
+Lotus Europa    1    5    2
+Ford Pantera L  1    5    4
+Ferrari Dino    1    5    6
+Maserati Bora   1    5    8
+Volvo 142E      1    4    2
+\end{Soutput}
+\end{Schunk}
+\end{frame}
+
+\begin{frame}[fragile,containsverbatim]
+	\frametitle{Subsetting Data Frames and Matrices}
+\begin{Schunk}
+\begin{Sinput}
+> mtcars[1,]
+\end{Sinput}
+\begin{Soutput}
+          mpg cyl disp  hp drat  wt qsec vs am
+Mazda RX4  21   6  160 110  3.9 2.6   16  0  1
+          gear carb
+Mazda RX4    4    4
+\end{Soutput}
+\begin{Sinput}
+> mtcars[,2]
+\end{Sinput}
+\begin{Soutput}
+ [1] 6 6 4 6 8 6 8 4 4 6 6 8 8 8 8 8 8 4 4 4 4 8 8
+[24] 8 8 4 4 4 8 6 8 4
+\end{Soutput}
+\begin{Sinput}
+> mtcars$cyl
+\end{Sinput}
+\begin{Soutput}
+ [1] 6 6 4 6 8 6 8 4 4 6 6 8 8 8 8 8 8 4 4 4 4 8 8
+[24] 8 8 4 4 4 8 6 8 4
+\end{Soutput}
+\begin{Sinput}
+> mtcars[,c("cyl","disp")]
+\end{Sinput}
+\begin{Soutput}
+                    cyl disp
+Mazda RX4             6  160
+Mazda RX4 Wag         6  160
+Datsun 710            4  108
+Hornet 4 Drive        6  258
+Hornet Sportabout     8  360
+Valiant               6  225
+Duster 360            8  360
+Merc 240D             4  147
+Merc 230              4  141
+Merc 280              6  168
+Merc 280C             6  168
+Merc 450SE            8  276
+Merc 450SL            8  276
+Merc 450SLC           8  276
+Cadillac Fleetwood    8  472
+Lincoln Continental   8  460
+Chrysler Imperial     8  440
+Fiat 128              4   79
+Honda Civic           4   76
+Toyota Corolla        4   71
+Toyota Corona         4  120
+Dodge Challenger      8  318
+AMC Javelin           8  304
+Camaro Z28            8  350
+Pontiac Firebird      8  400
+Fiat X1-9             4   79
+Porsche 914-2         4  120
+Lotus Europa          4   95
+Ford Pantera L        8  351
+Ferrari Dino          6  145
+Maserati Bora         8  301
+Volvo 142E            4  121
+\end{Soutput}
+\end{Schunk}
+\end{frame}
+
+
+\section{Descriptive Statistics}
+
+\begin{frame}[fragile]
+	\frametitle{Descriptive Statistics}
+	\begin{description}
+		\item[table] Crosstabs.
+		\item[summary] Provides summary information relevant to the type.
+		\item[describe] In the \texttt{psych}, provides many of the most common descriptives statistics (e.g. mean, median, standard deviation, range, etc.)
+		\item[describeBy] Same as \texttt{describe} but will provide descriptive stats based upon grouping varaible(s).
+		\item[fivenum] Returns Tukey's five number summary (minimum, lower-hinge, median, upper-hinge, maximum)
+		\item[mean] Mean
+		\item[median] Median
+		\item[sd] Standard deviation
+		\item[var] Variance
+	\end{description}
+
+\end{frame}
+
+%\begin{frame}[c]
+%	\LARGE{Thank You}\\
+%	\normalsize
+%	Jason Bryer (jason@bryer.org)\\
+%	\url{http://jbryer.github.com}
+%\end{frame}
+
+\end{document}

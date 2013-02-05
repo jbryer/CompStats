@@ -1,0 +1,154 @@
+%\documentclass[handout]{beamer}
+%\documentclass[handout,10pt,slidestop,mathserif]{beamer}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}
+\documentclass[10pt,slidestop,mathserif,c]{beamer}
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+
+\usepackage{tabularx}
+\usepackage{verbatim}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{Sweave}
+\usepackage{moreverb}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{Sweave}
+%\SweaveOpts{prefix.string=figures/}
+
+\newcommand{\putat}[3]{\begin{picture}(0,0)(0,0)\put(#1,#2){#3}\end{picture}}
+  
+\newenvironment{changemargin}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+  \item[]}{\end{list}}
+
+%% Define a new 'leo' style for the package that will use a smaller font.
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\tiny\ttfamily}}}
+\makeatother
+
+\title{EPSY 887: Computation Statistics}
+\subtitle{Working with Data}
+\author[Jason Bryer]{Jason Bryer}
+\institute[Jason.Bryer.org]{\url{http://github.com/jbryer/CompStats}\\\href{mailto:jason@bryer.org}{jason@bryer.org}}
+\date[Feb 4, 2013]{Week 2\\February 4, 2013}
+
+\begin{document}
+
+\AtBeginSection[]
+{
+   \begin{frame}
+       \frametitle{Outline}
+       \tableofcontents[currentsection,currentsubsections]
+   \end{frame}
+}
+
+<<echo=FALSE>>=
+options(width=50)
+options(digits=2)
+options(continue="   ")
+options(warn=-1)
+@
+
+\frame{\titlepage}
+\frame{\frametitle{Agenda}\tableofcontents[hideallsubsections]}
+
+\section{Reading Data}
+
+\begin{frame}[fragile]
+	\frametitle{Reading Data}
+	\begin{description}
+		\item[read.table] Reads in a table where each line is a record. Lots of options to define the structure of the file.
+		\item[read.csv] Comma deliminited files.
+		\item[read.spss] In the \texttt{foreign} package, reads SPSS files.
+		\item[read.xls] In the \texttt{gdata} package, reads Excel files.
+		\item[RODBC] This package has functions to read data from most ODBC databases.
+		\item[RMySQL] Package for reading data from MySQL databases.
+		\item[RPoostgreSQL] Package for reading data from PostgreSQL databases.
+		\item[load] Read in R data object files saved using the \texttt{save}. This is very useful for saving intermediate data files.
+	\end{description}
+\end{frame}
+
+\section{Viewing and Subsetting Data}
+
+\begin{frame}[fragile,containsverbatim]
+	\frametitle{Subsetting Lists and Vectors}
+<<>>=
+mylist <- list(letters=letters, numbers=1:10)
+class(mylist)
+str(mylist)
+length(mylist)
+@
+\end{frame}
+
+\begin{frame}[fragile,containsverbatim]
+	\frametitle{Subsetting Lists and Vectors}
+<<>>=
+mylist[1]
+mylist[[1]]
+mylist$letters
+mylist$numbers
+@
+\end{frame}
+
+\begin{frame}[fragile,containsverbatim]
+	\frametitle{Subsetting Data Frames and Matrices}
+<<>>=
+data(mtcars)
+head(mtcars)
+@
+\end{frame}
+
+\begin{frame}[fragile,containsverbatim]
+	\frametitle{Subsetting Data Frames and Matrices}
+<<>>=
+tail(mtcars)
+@
+\end{frame}
+
+\begin{frame}[fragile,containsverbatim]
+	\frametitle{Subsetting Data Frames and Matrices}
+<<>>=
+mtcars[1,]
+mtcars[,2]
+mtcars$cyl
+mtcars[,c("cyl","disp")]
+@
+\end{frame}
+
+
+\section{Descriptive Statistics}
+
+\begin{frame}[fragile]
+	\frametitle{Descriptive Statistics}
+	\begin{description}
+		\item[table] Crosstabs.
+		\item[summary] Provides summary information relevant to the type.
+		\item[describe] In the \texttt{psych}, provides many of the most common descriptives statistics (e.g. mean, median, standard deviation, range, etc.)
+		\item[describeBy] Same as \texttt{describe} but will provide descriptive stats based upon grouping varaible(s).
+		\item[fivenum] Returns Tukey's five number summary (minimum, lower-hinge, median, upper-hinge, maximum)
+		\item[mean] Mean
+		\item[median] Median
+		\item[sd] Standard deviation
+		\item[var] Variance
+	\end{description}
+
+\end{frame}
+
+%\begin{frame}[c]
+%	\LARGE{Thank You}\\
+%	\normalsize
+%	Jason Bryer (jason@bryer.org)\\
+%	\url{http://jbryer.github.com}
+%\end{frame}
+
+\end{document}
