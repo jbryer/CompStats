@@ -5,7 +5,8 @@ require(psych)
 require(ggplot2)
 
 #### For Bruce
-install.packages('~/Dropbox/Bryer Dissertation/fromDudek/bcdstats_1.0.tar.gz')
+install.packages('~/Dropbox/Bryer Dissertation/fromDudek/bcdstats_1.0.tar.gz',
+				 type='source')
 require(devtools)
 install('~/Dropbox/Bryer Dissertation/fromDudek/bcdstats')
 require(bcdstats)
@@ -104,12 +105,24 @@ pisa.student$SCHOOLID <- as.integer(pisa.student$SCHOOLID)
 pisa.school$SCHOOLID <- as.integer(pisa.school$SCHOOLID)
 head(pisa.student); nrow(pisa.student)
 head(pisa.school); nrow(pisa.school)
-pisa <- merge(pisa.student, pisa.school, by=c("SCHOOLID"), all.x=TRUE)
+
+#pisa <- merge(pisa.student, pisa.school, by=c("SCHOOLID"), all.x=TRUE)
 nrow(pisa.student); nrow(pisa)
 
 pisa <- merge(pisa.student, pisa.school, by=c("CNT","SCHOOLID"), all.x=TRUE)
+nrow(pisa.student); nrow(pisa)
+
+names(pisa)
+table(pisa.school$COUNTRY, useNA='ifany')
+table(pisa$COUNTRY, useNA='ifany')
+table(is.na(pisa$COUNTRY), useNA='ifany')
 
 describeBy(pisa$PV1MATH, group=list(pisa$SC15Q01), mat=TRUE, skew=FALSE)
+res <- describeBy(pisa$PV1MATH, group=list(pisa$CNT, pisa$SC15Q01), mat=TRUE, skew=FALSE)
+View(res)
+View(res[order(res$group1, res$group2),])
+
+describe(mtcars$mpg)
 
 #Let's look at duplicated schools
 nrow(pisa.school)
@@ -121,6 +134,15 @@ length(dupids)
 tmp <- pisa.school[order(pisa.school$SCHOOLID),]
 head(tmp[which(tmp$SCHOOLID %in% dupids),])
 
+dups2 <- duplicated(pisa.school[,c('SCHOOLID', 'CNT')])
+table(dups2)
+
+#With mtcars
+duplicated(mtcars$cyl), mtcars$cyl)
+cbind(duplicated(mtcars$cyl), mtcars$cyl)
+data.frame(dup=duplicated(mtcars$cyl), cyl=mtcars$cyl)
+data.frame(dup=duplicated(mtcars$cyl, fromLast=TRUE), cyl=mtcars$cyl)
+
 #### Reshaping
 require(reshape2)
 mydata <- data.frame(id=c(1,1,2,2), time=c(1,2,1,2), x1=c(5,3,6,2), x2=c(6,5,1,4))
@@ -129,8 +151,47 @@ mydata
 mydata.melted <- melt(mydata, id=c("id","time"))
 mydata.melted
 
+describeBy(mydata.melted$value, group=list(mydata.melted$variable), mat=TRUE, skew=FALSE)
+
+describe(mydata$x1)
+describe(mydata$x2)
+
+dcast(mydata.melted, id + time ~ variable, mean)
+
 dcast(mydata.melted, id ~ variable, mean)
+dcast(mydata.melted, id ~ variable, sd)
+
+dsum <- dcast(mydata.melted, id ~ variable, sum)
+dlen <- dcast(mydata.melted, id ~ variable, length)
+dsum[,2:3] / dlen[,2:3]
+
 dcast(mydata.melted, time ~ variable, mean)
+dcast(mydata.melted, time ~ variable, sd)
+
+mydata.melted$id2 <- factor(mydata.melted$id, levels=c(1,2), labels=c('A','B'))
+dcasted <- dcast(mydata.melted, id2 ~ variable, mean)
+dcasted
+dcasted[which(dcasted$id2 == 'A'),]
+
+###ggplot2
+p <- ggplot(diamonds, aes(x=carat,y=price,colour=cut)) + geom_point()
+
+p + facet_wrap(~cut) +	ggtitle("First example")
+p + facet_grid(~cut) +	ggtitle("First example")
+p + facet_grid(cut ~ .) +	ggtitle("First example")
+
+diamonds$logprice <- log(diamonds$price)
+head(diamonds)
+
+p + scale_y_log10()
+
+ggplot(diamonds, aes(x=carat, y=price, colour=cut)) + geom_smooth()
+
+ggplot(diamonds, aes(x=carat, y=price, colour=cut)) + geom_point(alpha=.1) + geom_smooth()
+
+search()
+ls('package:ggplot2')
+ls('package:ggplot2')[grep('^geom_*', ls('package:ggplot2'))]
 
 
 #### xtable

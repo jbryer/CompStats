@@ -1,0 +1,320 @@
+%\documentclass[handout]{beamer}
+%\documentclass[handout,10pt,slidestop,mathserif]{beamer}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}
+\documentclass[10pt,slidestop,mathserif,c]{beamer}
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+
+\usepackage{tabularx}
+\usepackage{verbatim}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{Sweave}
+\usepackage{moreverb}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{Sweave}
+%\SweaveOpts{prefix.string=figures/}
+
+\newcommand{\putat}[3]{\begin{picture}(0,0)(0,0)\put(#1,#2){#3}\end{picture}}
+  
+\newenvironment{changemargin}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+  \item[]}{\end{list}}
+
+%% Define a new 'leo' style for the package that will use a smaller font.
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\tiny\ttfamily}}}
+\makeatother
+
+\title{EPSY 887: Computation Statistics}
+\subtitle{Reshaping \& Merging Data}
+\author[Jason Bryer]{Jason Bryer}
+\institute[Jason.Bryer.org]{\url{http://github.com/jbryer/CompStats}\\\href{mailto:jason@bryer.org}{jason@bryer.org}}
+\date[Feb 11, 2013]{Week 3\\February 11, 2013}
+
+\begin{document}
+
+\AtBeginSection[]
+{
+   \begin{frame}
+       \frametitle{Outline}
+       \tableofcontents[currentsection,currentsubsections]
+   \end{frame}
+}
+
+<<echo=FALSE>>=
+options(width=70)
+options(digits=2)
+options(continue="   ")
+options(warn=-1)
+
+require(ggplot2)
+data(mtcars)
+@
+
+\frame{\titlepage}
+\frame{\frametitle{Agenda}\tableofcontents[hideallsubsections]}
+
+\section{Sorting Data}
+
+\begin{frame}[fragile,containsverbatim]
+	\frametitle{Sorting Data}
+	The \texttt{order} function will return a vector with the position of the elements ordered.
+<<>>=
+test <- c("s","t","a","t","i","s","t","i","c","s")
+test
+order(test)
+test[order(test)]
+@
+\end{frame}
+
+\begin{frame}[fragile,containsverbatim]
+	\frametitle{Sorting a Data Frame}
+	Using the \texttt{mtcars} dataset, first we'll sort by mpg
+
+<<>>=
+mtcars.mpg <- mtcars[order(mtcars$mpg),]
+head(mtcars.mpg)
+@
+\end{frame}
+
+
+\begin{frame}[fragile,containsverbatim]
+	\frametitle{Sorting a Data Frame}
+
+	By default the \texttt{order} function returns a list in ascending order. To return in descending order specify the \texttt{decreasing=TRUE} parameter.
+
+<<>>=
+mtcars.mpg.desc <- mtcars[order(mtcars$mpg, decreasing=TRUE),]
+head(mtcars.mpg.desc)
+@
+
+\end{frame}
+
+
+
+\section{Merging data}
+
+\begin{frame}
+	\frametitle{Merging Data}
+	
+	The \texttt{merge} function will combine two data frames by one or more common key variables. For example, consider two data frames, one listing authors and another listing books. We may wish to combine these two data frames into a single data frame. We can link them by the author's name.
+\end{frame}
+
+<<echo=FALSE,results=hide>>=
+authors <- data.frame(
+	surname = I(c("Tukey", "Venables", "Tierney", "Ripley", "McNeil")),
+	nationality = c("US", "Australia", "US", "UK", "Australia"),
+	deceased = c("yes", rep("no", 4)))
+books <- data.frame(
+	name = I(c("Tukey", "Venables", "Tierney",
+			   "Ripley", "Ripley", "McNeil", "R Core")),
+	title = c("Exploratory Data Analysis",
+			  "Modern Applied Statistics ...",
+			  "LISP-STAT",
+			  "Spatial Statistics", "Stochastic Simulation",
+			  "Interactive Data Analysis",
+			  "An Introduction to R"),
+	other.author = c(NA, "Ripley", NA, NA, NA, NA,
+					 "Venables & Smith"))
+@
+
+\begin{frame}[fragile,containsverbatim]
+	\frametitle{Merging Data}
+
+<<>>=
+authors
+books
+@
+\end{frame}
+
+\begin{frame}[fragile,containsverbatim]
+	\frametitle{Merging Data}
+
+<<>>=
+merge(authors, books, by.x = "surname", by.y = "name")
+@
+\end{frame}
+
+\begin{frame}[fragile,containsverbatim]
+	\frametitle{Merging Data}
+
+<<>>=
+merge(books, authors, by.x = "name", by.y = "surname")
+@
+\end{frame}
+
+\begin{frame}[fragile,containsverbatim]
+	\frametitle{Merging Data}
+
+<<>>=
+merge(authors, books, by.x = "surname", by.y = "name", all=TRUE)
+@
+\end{frame}
+
+\section{Reshaping Data}
+
+\begin{frame}[fragile,containsverbatim]
+	\frametitle{Transpose}
+	The \texttt{t} function will transpose a matrix or data frame. That is, rows become columns and columns become rows.
+	
+<<>>=
+head(mtcars)
+head(t(mtcars))
+@
+
+\end{frame}
+
+\begin{frame}[fragile,containsverbatim]
+	\frametitle{Reshape}
+	The \texttt{reshape} and \texttt{reshape2} packages provide a robust set of functions to melt and cast data frames.
+	
+<<>>=
+mydata <- data.frame(id=c(1,1,2,2), time=c(1,2,1,2), x1=c(5,3,6,2), x2=c(6,5,1,4))
+mydata
+require(reshape2)
+@
+
+\end{frame}
+
+
+\begin{frame}[fragile,containsverbatim]
+	\frametitle{Melting}
+	
+<<>>=
+mydata.melted <- melt(mydata, id=c("id","time"))
+mydata.melted
+@
+
+\end{frame}
+
+\begin{frame}[fragile,containsverbatim]
+	\frametitle{Casting}
+	The \texttt{reshape2} package has two functions for casting depending on the desired output. The\texttt{dcast} function will return a data frame and the \texttt{acast} function will return an array or matrix.
+
+<<>>=
+dcast(mydata.melted, id ~ variable, mean)
+dcast(mydata.melted, time ~ variable, mean)
+@
+
+\end{frame}
+
+
+\section{ggplot2: A Grammar of Graphics}
+
+\begin{frame}[containsverbatim,fragile]
+	\frametitle{ggplot2: A Grammar of Graphics}
+	\begin{itemize}
+		\item ggplot2 is an R package that provides an alternative framework based upon Wilkinson's (2005) Grammar of Graphics.
+		\item ggplot2 is, in general, more flexible for creating "prettier" and complex plots.
+		\item Works by creating layers of different types of objects/geometries (i.e. bars, points, lines, polygons, etc.)
+		\item ggplot2 has at least three ways of creating plots:
+			\begin{enumerate}
+				\item \begin{verbatim} qplot \end{verbatim} 
+				\item \begin{verbatim} ggplot(...) + geom_XXX(...) + ... \end{verbatim}
+				\item \begin{verbatim} ggplot(...) + layer(...) \end{verbatim}
+			\end{enumerate}
+		We will focus only on the second.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[containsverbatim,fragile]
+	\frametitle{First Example}
+\begin{figure}
+<<ggplot-fig1,echo=TRUE,fig=TRUE,height=4.5>>=
+data(diamonds)
+p <- ggplot(diamonds, aes(x=carat,y=price,colour=cut)) + 
+	geom_point()
+print(p)
+@
+\end{figure}
+\end{frame}
+
+\begin{frame}[containsverbatim,fragile]
+	\frametitle{First Example}
+\begin{figure}
+<<ggplot-fig2,echo=TRUE,fig=TRUE,height=4.5>>=
+p <- p + facet_wrap(~cut) + 
+	ggtitle("First example")
+print(p)
+@
+\end{figure}
+\end{frame}
+
+\begin{frame}[containsverbatim,fragile]
+	\frametitle{Parts of a ggplot2 statement}
+	\begin{itemize}
+		\item<+-| alert@+> Data \begin{verbatim} ggplot(myDataFrame, aes(x=x, y=y) \end{verbatim}
+		\item<+-| alert@+> Layers \begin{verbatim} geom_point(), geom_histogram() \end{verbatim}
+		\item<+-| alert@+> Facets \begin{verbatim} facet_wrap(~ cut), facet_grid(~ cut) \end{verbatim}
+		\item<+-| alert@+> Scales \begin{verbatim} scale_y_log10() \end{verbatim}
+		\item<+-| alert@+> Other options \begin{verbatim} ggtitle("my title"), ylim(c(0, 10000)), xlab("x-axis label") \end{verbatim}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[containsverbatim,fragile]
+	\frametitle{Lots of geoms}
+	\begin{columns}[c]
+	\column{1.5in}
+\begin{verbatim} 
+geom_abline
+geom_jitter
+geom_area
+geom_line
+geom_bar	
+geom_linerange
+geom_bin2d
+geom_path 
+geom_blank
+geom_point 
+geom_boxplot
+geom_pointrange 
+geom_contour
+geom_polygon 
+geom_crossbar
+geom_quantile 
+\end{verbatim}
+\column{1.5in}
+\begin{verbatim}
+geom_density
+geom_rect 
+geom_density2d
+geom_ribbon
+geom_errorbar
+geom_rug
+geom_errorbarh
+geom_segment 
+geom_freqpoly
+geom_smooth 
+geom_hex
+geom_step
+geom_histogram
+geom_text 
+geom_hline
+geom_tile
+geom_vline
+\end{verbatim}
+\end{columns}
+\end{frame}
+
+
+
+
+%\begin{frame}[c]
+%	\LARGE{Thank You}\\
+%	\normalsize
+%	Jason Bryer (jason@bryer.org)\\
+%	\url{http://jbryer.github.com}
+%\end{frame}
+
+\end{document}
