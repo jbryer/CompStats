@@ -47,7 +47,7 @@
 \AtBeginSection[]
 {
    \begin{frame}
-       \frametitle{Outline}
+       \frametitle{Agenda}
        \tableofcontents[currentsection,currentsubsections]
    \end{frame}
 }
@@ -63,7 +63,7 @@ data(mtcars)
 @
 
 \frame{\titlepage}
-\frame{\frametitle{Agenda}\tableofcontents[hideallsubsections]}
+%\frame{\frametitle{Agenda}\tableofcontents[hideallsubsections]}
 
 \section{Sorting Data}
 
@@ -208,106 +208,6 @@ dcast(mydata.melted, time ~ variable, mean)
 @
 
 \end{frame}
-
-
-\section{ggplot2: A Grammar of Graphics}
-
-\begin{frame}[containsverbatim,fragile]
-	\frametitle{ggplot2: A Grammar of Graphics}
-	\begin{itemize}
-		\item ggplot2 is an R package that provides an alternative framework based upon Wilkinson's (2005) Grammar of Graphics.
-		\item ggplot2 is, in general, more flexible for creating "prettier" and complex plots.
-		\item Works by creating layers of different types of objects/geometries (i.e. bars, points, lines, polygons, etc.)
-		\item ggplot2 has at least three ways of creating plots:
-			\begin{enumerate}
-				\item \begin{verbatim} qplot \end{verbatim} 
-				\item \begin{verbatim} ggplot(...) + geom_XXX(...) + ... \end{verbatim}
-				\item \begin{verbatim} ggplot(...) + layer(...) \end{verbatim}
-			\end{enumerate}
-		We will focus only on the second.
-	\end{itemize}
-\end{frame}
-
-\begin{frame}[containsverbatim,fragile]
-	\frametitle{First Example}
-\begin{figure}
-<<ggplot-fig1,echo=TRUE,fig=TRUE,height=4.5>>=
-data(diamonds)
-p <- ggplot(diamonds, aes(x=carat,y=price,colour=cut)) + 
-	geom_point()
-print(p)
-@
-\end{figure}
-\end{frame}
-
-\begin{frame}[containsverbatim,fragile]
-	\frametitle{First Example}
-\begin{figure}
-<<ggplot-fig2,echo=TRUE,fig=TRUE,height=4.5>>=
-p <- p + facet_wrap(~cut) + 
-	ggtitle("First example")
-print(p)
-@
-\end{figure}
-\end{frame}
-
-\begin{frame}[containsverbatim,fragile]
-	\frametitle{Parts of a ggplot2 statement}
-	\begin{itemize}
-		\item<+-| alert@+> Data \begin{verbatim} ggplot(myDataFrame, aes(x=x, y=y) \end{verbatim}
-		\item<+-| alert@+> Layers \begin{verbatim} geom_point(), geom_histogram() \end{verbatim}
-		\item<+-| alert@+> Facets \begin{verbatim} facet_wrap(~ cut), facet_grid(~ cut) \end{verbatim}
-		\item<+-| alert@+> Scales \begin{verbatim} scale_y_log10() \end{verbatim}
-		\item<+-| alert@+> Other options \begin{verbatim} ggtitle("my title"), ylim(c(0, 10000)), xlab("x-axis label") \end{verbatim}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}[containsverbatim,fragile]
-	\frametitle{Lots of geoms}
-	\begin{columns}[c]
-	\column{1.5in}
-\begin{verbatim} 
-geom_abline
-geom_jitter
-geom_area
-geom_line
-geom_bar	
-geom_linerange
-geom_bin2d
-geom_path 
-geom_blank
-geom_point 
-geom_boxplot
-geom_pointrange 
-geom_contour
-geom_polygon 
-geom_crossbar
-geom_quantile 
-\end{verbatim}
-\column{1.5in}
-\begin{verbatim}
-geom_density
-geom_rect 
-geom_density2d
-geom_ribbon
-geom_errorbar
-geom_rug
-geom_errorbarh
-geom_segment 
-geom_freqpoly
-geom_smooth 
-geom_hex
-geom_step
-geom_histogram
-geom_text 
-geom_hline
-geom_tile
-geom_vline
-\end{verbatim}
-\end{columns}
-\end{frame}
-
-
 
 
 %\begin{frame}[c]
