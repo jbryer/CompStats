@@ -30,7 +30,7 @@
   }%
   \item[]}{\end{list}}
 
-%% Define a new 'leo' style for the package that will use a smaller font.
+%% Define a new "leo" style for the package that will use a smaller font.
 \makeatletter
 \def\url@leostyle{%
   \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\tiny\ttfamily}}}
@@ -159,6 +159,130 @@ geom_vline
 \end{verbatim}
 \end{columns}
 \end{frame}
+
+
+\begin{frame}[containsverbatim,fragile]
+    \frametitle{Symbols}
+\begin{Schunk}
+\begin{Sinput}
+> p.symbols <- ggplot(data=data.frame(x=c(0:25))) + 
+       geom_point(size=10, aes(x=x,y=x,shape=x)) + 
+   	facet_wrap(~ x, scales="free") + 
+   	xlab("") + ylab("") +
+   	scale_shape_identity() +
+   	theme(axis.text.x=element_blank(), 
+           axis.text.y=element_blank(), 
+           axis.ticks=element_blank(), 
+           legend.position="none")
+\end{Sinput}
+\end{Schunk}
+\end{frame}
+
+\begin{frame}[containsverbatim,fragile]
+	\frametitle{Symbols}
+\begin{Schunk}
+\begin{Sinput}
+> print(p.symbols)
+\end{Sinput}
+\end{Schunk}
+\includegraphics{Slides-symbols}
+\end{frame}
+
+
+\begin{frame}[containsverbatim,fragile]
+    \frametitle{Line Types}
+\begin{Schunk}
+\begin{Sinput}
+> p.linetypes <- ggplot(data=data.frame(x=c(1:6))) + 
+       geom_hline(size=2, aes(yintercept=x, linetype=x)) +
+   	scale_linetype_identity() +
+   	xlab(NULL) + ylab(NULL) + xlim(c(0,100)) +
+   	theme(axis.text.x=element_blank(), axis.ticks=element_blank(), legend.position="none")
+\end{Sinput}
+\end{Schunk}
+\end{frame}
+
+\begin{frame}[containsverbatim,fragile]
+	\frametitle{Line Types}
+\begin{Schunk}
+\begin{Sinput}
+> print(p.linetypes)
+\end{Sinput}
+\end{Schunk}
+\includegraphics{Slides-linetypes}
+\end{frame}
+
+\begin{frame}[containsverbatim,fragile]
+    \frametitle{Colors}
+\begin{Schunk}
+\begin{Sinput}
+> getColorHexAndDecimal <- function(color) {
+   	if(is.na(color)) {
+   		return(NA)
+   	} else {
+   		c <- col2rgb(color)
+   		return(sprintf("#%02X%02X%02X   %3d %3d %3d", 
+   		    c[1],c[2],c[3], c[1], c[2], c[3]))
+   	}
+   }
+\end{Sinput}
+\end{Schunk}
+\end{frame}
+
+\begin{frame}[containsverbatim,fragile]
+    \frametitle{Colors}
+\begin{Schunk}
+\begin{Sinput}
+> df = data.frame(x=rep(1:26, 26), y=rep(1:26, each=26))
+> df$c = NA
+> df[1:length(colors()),"c"] = colors()
+> df$n = NA
+> df[1:length(colors()),"n"] = 1:length(colors())
+> df$r = df$g = df$b = NA
+> df[1:length(colors()),c("r","g","b")] = t(col2rgb(colors()))
+> df$text = ifelse(apply(df[,c("r","g","b")], 1, sum) > 
+       (255*3/2), "black", "white")
+> df$hex = lapply(df$c, getColorHexAndDecimal)
+> df$hex2 = paste(format(df$n, width=3), 
+       format(df$c, width=(max(nchar(df$c))+1)), 
+       format(df$hex, width=(max(nchar(df$hex))+1)))
+\end{Sinput}
+\end{Schunk}
+\end{frame}
+
+\begin{frame}[containsverbatim,fragile]
+    \frametitle{Colors}
+\begin{Schunk}
+\begin{Sinput}
+> p.colors <- ggplot(df, aes(x=x, y=y, fill=c, label=n)) + 
+       geom_tile() + 
+   	geom_text(aes(colour=text), size=3) + 
+   	scale_fill_identity() +
+   	scale_colour_identity() +
+   	xlab(NULL) + ylab(NULL) +
+   	theme(axis.text.x=element_blank(), 
+   	      axis.ticks=element_blank(), 
+   		  plot.margin=unit(c(0,0,0,0), "cm"),
+   		  axis.text.y=element_blank(), 
+   		  axis.ticks=element_blank(), 
+   		  legend.position="none")
+\end{Sinput}
+\end{Schunk}
+\end{frame}
+
+\begin{frame}[containsverbatim,fragile]
+	\frametitle{Colors}
+\begin{Schunk}
+\begin{Sinput}
+> print(p.colors)
+\end{Sinput}
+\end{Schunk}
+\includegraphics{Slides-colors}
+\end{frame}
+
+
+
+
 
 \section{likert Package}
 
@@ -308,8 +432,7 @@ geom_vline
     
 \begin{Schunk}
 \begin{Sinput}
-> print(plot(l28, type="heat")
-   )
+> print(plot(l28, type="heat"))
 \end{Sinput}
 \end{Schunk}
 \includegraphics{Slides-likert-heat}

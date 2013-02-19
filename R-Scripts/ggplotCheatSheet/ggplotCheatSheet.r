@@ -27,7 +27,7 @@ ggsave('symbols.png')
 ggplot(data=data.frame(x=c(1:6))) + geom_hline(size=2, aes(yintercept=x, linetype=x)) +
 	scale_linetype_identity() +
 	xlab(NULL) + ylab(NULL) + xlim(c(0,100)) +
-	opts(axis.text.x=theme_blank(), axis.ticks=theme_blank(), legend.position='none')
+	theme(axis.text.x=element_blank(), axis.ticks=element_blank(), legend.position="none")
 ggsave('linetypes.png', width=6.5, height=2)
 
 #Colors
@@ -42,12 +42,16 @@ df$text = ifelse(apply(df[,c('r','g','b')], 1, sum) > (255*3/2), 'black', 'white
 df$hex = lapply(df$c, getColorHexAndDecimal)
 df$hex2 = paste(format(df$n, width=3), format(df$c, width=(max(nchar(df$c))+1)), format(df$hex, width=(max(nchar(df$hex))+1)))
 
-ggplot(df, aes(x=x, y=y, fill=c, label=n)) + geom_tile() + geom_text(aes(colour=text), size=3) + 
+ggplot(df, aes(x=x, y=y, fill=c, label=n)) + geom_tile() + 
+	geom_text(aes(colour=text), size=3) + 
 	scale_fill_identity() +
 	scale_colour_identity() +
 	xlab(NULL) + ylab(NULL) +
-	opts(axis.text.x=theme_blank(), axis.ticks=theme_blank(), plot.margin=unit(c(0,0,0,0), "cm"),
-		 axis.text.y=theme_blank(), axis.ticks=theme_blank(), legend.position='none')
+	theme(axis.text.x=element_blank(), axis.ticks=element_blank(), 
+		  plot.margin=unit(c(0,0,0,0), "cm"),
+		  axis.text.y=element_blank(), 
+		  axis.ticks=element_blank(), 
+		  legend.position="none")
 ggsave('colors.png')
 
 ggplot(df[1:100,], aes(x=1, y=n, fill=c, label=hex2, colour=text)) +
